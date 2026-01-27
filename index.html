@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV - Trần Vĩnh Nhật</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            max-width: 900px;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .cv-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            min-height: 100vh;
+        }
+
+        .sidebar {
+            background: linear-gradient(180deg, #0066cc 0%, #004399 100%);
+            color: white;
+            padding: 40px 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 5px solid white;
+            margin: 0 auto;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .profile-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .sidebar-section {
+            border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+            padding-bottom: 20px;
+        }
+
+        .sidebar-section:last-child {
+            border-bottom: none;
+        }
+
+        .sidebar-title {
+            font-size: 16px;
+            font-weight: bold;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+            letter-spacing: 1px;
+            color: #ffeb99;
+        }
+
+        .contact-item {
+            margin-bottom: 12px;
+            font-size: 13px;
+            line-height: 1.5;
+            display: flex;
+            gap: 8px;
+        }
+
+        .contact-icon {
+            min-width: 20px;
+            font-size: 16px;
+        }
+
+        .skill-item {
+            margin-bottom: 10px;
+            font-size: 13px;
+            line-height: 1.5;
+        }
+
+        .skill-dot {
+            color: #ffeb99;
+            margin-right: 8px;
+        }
+
+        .content {
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            overflow-y: auto;
+        }
+
+        .content-section {
+            border-bottom: 2px solid #f0f0f0;
+            padding-bottom: 20px;
+        }
+
+        .content-section:last-child {
+            border-bottom: none;
+        }
+
+        .section-title {
+            font-size: 20px;
+            font-weight: bold;
+            color: #0066cc;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            border-left: 5px solid #0066cc;
+            padding-left: 12px;
+        }
+
+        .item {
+            margin-bottom: 15px;
+        }
+
+        .item-title {
+            font-size: 16px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        .item-subtitle {
+            font-size: 13px;
+            color: #0066cc;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .item-description {
+            font-size: 13px;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .achievement-list {
+            list-style: none;
+            margin-top: 10px;
+        }
+
+        .achievement-list li {
+            font-size: 13px;
+            color: #666;
+            margin-bottom: 6px;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .achievement-list li:before {
+            content: "▪";
+            position: absolute;
+            left: 0;
+            color: #0066cc;
+            font-weight: bold;
+        }
+
+        .name-title {
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .name {
+            font-size: 28px;
+            font-weight: bold;
+            color: white;
+            margin-bottom: 5px;
+        }
+
+        .job-title {
+            font-size: 14px;
+            color: #ffeb99;
+            font-weight: 600;
+        }
+
+        @media (max-width: 768px) {
+            .cv-wrapper {
+                grid-template-columns: 1fr;
+                min-height: auto;
+            }
+
+            .sidebar {
+                padding: 30px 20px;
+            }
+
+            .content {
+                padding: 30px 20px;
+            }
+
+            .name {
+                font-size: 24px;
+            }
+        }
+
+        .icon-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            padding-top: 10px;
+        }
+
+        .icon-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.2);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .icon-link:hover {
+            background: rgba(255, 255, 255, 0.4);
+            transform: scale(1.1);
+            border-color: rgba(255, 255, 255, 0.6);
+        }
+
+        .icon {
+            font-size: 24px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="cv-wrapper">
+            <!-- SIDEBAR -->
+            <div class="sidebar">
+                <div class="name-title">
+                    <div class="profile-img">
+                        <img src="image/avatar.jpg" alt="Avatar">
+                    </div>
+                    <div class="name">TRẦN VĨNH NHẬT</div>
+                    <div class="job-title">Phát triển phần mềm</div>
+                </div>
+
+                <!-- THÔNG TIN CÁ NHÂN -->
+                <div class="sidebar-section">
+                    <div class="sidebar-title">📋 Thông tin cá nhân</div>
+                    <div class="contact-item">
+                        <span class="contact-icon">📱</span>
+                        <span>0705777737</span>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-icon">📧</span>
+                        <span>vinhnhatran32@gmail.com</span>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-icon">📍</span>
+                        <span>K2/19 Nguyễn Độn Tiết, Hải Châu, Đà Nẵng</span>
+                    </div>
+                </div>
+
+                <!-- GIÁO DỤC -->
+                <div class="sidebar-section">
+                    <div class="sidebar-title">🎓 Giáo dục</div>
+                    <div class="skill-item">
+                        <strong>FPT POLYSCHOOL</strong>
+                        <div>Công nghệ thông tin</div>
+                        <div>2024-2027</div>
+                    </div>
+                </div>
+
+                <!-- KỸ NĂNG -->
+                <div class="sidebar-section">
+                    <div class="sidebar-title">💡 Kỹ năng</div>
+                    <div class="skill-item">
+                        <span class="skill-dot">✓</span>
+                        <span>Kiến thức nền tảng vững về lập trình</span>
+                    </div>
+                    <div class="skill-item">
+                        <span class="skill-dot">✓</span>
+                        <span>Chuyên sâu về UX/UI</span>
+                    </div>
+                    <div class="skill-item">
+                        <span class="skill-dot">✓</span>
+                        <span>Rèn luyện thế chất</span>
+                    </div>
+                    <div class="skill-item">
+                        <span class="skill-dot">✓</span>
+                        <span>Giải trí giải tỏa</span>
+                    </div>
+                    <div class="skill-item">
+                        <span class="skill-dot">✓</span>
+                        <span>Có kỹ năng làm việc hiệu quả trong team</span>
+                    </div>
+                </div>
+
+                <!-- PHƯƠNG CHÂM SỐNG -->
+                <div class="sidebar-section">
+                    <div class="sidebar-title">⭐ Phương châm sống</div>
+                    <div class="skill-item">
+                        <i>"Khi bạn có ý luật, bạn không cần động lực"</i>
+                    </div>
+                </div>
+
+                <!-- ICONS -->
+                <div class="sidebar-section" style="border-bottom: none;">
+                    <div class="icon-container">
+                        <a href="#" class="icon-link" title="Cài đặt">
+                            <span class="icon">⚙️</span>
+                        </a>
+                        <a href="#" class="icon-link" title="Máy tính">
+                            <span class="icon">💻</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CONTENT -->
+            <div class="content">
+                <!-- MONG MUỐN -->
+                <div class="content-section">
+                    <div class="section-title">🎯 Mong muốn</div>
+                    <ul class="achievement-list">
+                        <li>Viết code rõ ràng, dễ bảo trì, góp phần giúp team làm việc hiệu quả hơn</li>
+                        <li>Hoàn thành tốt các task được giao, đúng deadline và đúng yêu cầu</li>
+                        <li>Học hỏi quy trình làm việc thực tế, từ đó cải thiện kỹ năng lập trình và áp dụng cho dự án công ty</li>
+                    </ul>
+                </div>
+
+                <!-- THÀNH TỰU -->
+                <div class="content-section">
+                    <div class="section-title">🏆 Thành tựu</div>
+                    <ul class="achievement-list">
+                        <li>Top 100 Sinh Viên Xuất Sắc</li>
+                        <li>Giải 4 cuộc thi Bee Trăng</li>
+                        <li>Giải 3 cuộc thi Super Bee</li>
+                    </ul>
+                </div>
+
+                <!-- KINH NGHIỆM -->
+                <div class="content-section">
+                    <div class="section-title">💼 Kinh nghiệm làm việc</div>
+                    <div class="item">
+                        <div class="item-title">Lập trình viên Web Frontend</div>
+                        <div class="item-subtitle">Công ty ABC | 2024 - Hiện tại</div>
+                        <div class="item-description">
+                            <ul class="achievement-list" style="margin-top: 5px;">
+                                <li>Phát triển giao diện web responsive</li>
+                                <li>Tối ưu hiệu suất ứng dụng</li>
+                                <li>Làm việc với các thư viện JavaScript hiện đại</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- KỸ NĂNG KỸ THUẬT -->
+                <div class="content-section">
+                    <div class="section-title">🛠️ Kỹ năng kỹ thuật</div>
+                    <div class="item">
+                        <div class="item-subtitle">Ngôn ngữ lập trình:</div>
+                        <div class="item-description">HTML, CSS, JavaScript, Java, Python</div>
+                    </div>
+                    <div class="item">
+                        <div class="item-subtitle">Framework & Library:</div>
+                        <div class="item-description">React, Vue.js, Bootstrap, Tailwind CSS</div>
+                    </div>
+                    <div class="item">
+                        <div class="item-subtitle">Tools & Platforms:</div>
+                        <div class="item-description">Git, VS Code, Figma, Adobe XD</div>
+                    </div>
+                </div>
+
+                <!-- NGÔN NGỮ -->
+                <div class="content-section">
+                    <div class="section-title">🗣️ Ngôn ngữ</div>
+                    <div class="item">
+                        <ul class="achievement-list">
+                            <li>Tiếng Việt - Sử dụng thành thạo</li>
+                            <li>Tiếng Anh - Trung bình</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
